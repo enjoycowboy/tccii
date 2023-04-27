@@ -408,26 +408,6 @@ De acordo com \citet{choice}, os quatro protocolos mais aceitos para troca de me
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
-\begin{table}[h]
-
-\begin{tabular}{p{0.15\linewidth} | p{0.20\linewidth} | p{0.19\linewidth} | p{0.20\linewidth} | p{0.20\linewidth}}
-Critério                & \multicolumn{1}{l|}{MQTT}                                                                   & CoAP                                                & AMQP                                                                                                            & HTTP                                                                  \\ \hline
-Arquitetura             & Cliente/Gerenciador                                                                         & Cliente/Servidor ou Cliente/Gerenciador             & Cliente/Servidor ou Cliente/Gerenciador                                                                         & Cliente/Servidor                                                      \\
-Abstração               & Publicar/Assinar                                                                            & Pedido/Resposta ou Publicar/Assinar                 & Pedido/Resposta ou Publicar/Assinar                                                                             & Pedido/Resposta                                                       \\
-Cabeçalho               & 2 bytes                                                                                     & 4 bytes                                             & 8 bytes                                                                                                         & indefinido                                                            \\
-Mensagem                & Pequeno e Indefinido até 256MB                                                              & Pequeno e Indefinido (até caber em um datagrama IP) & Negociável e Indefinido                                                                                         & Grande e indefinido (depende do servidor                              \\
-Métodos                 & connect(), disconnect(), publish(), subscribe(), unsubscribe(), close()                     & get(), post(), put(), delete()                      & consume(), deliver(), publish(), get(), select(), ack(), delete(), nack(), recover(), reject(), open(), close() & get(), post(), head(), put(), patch(), options(), connect(), delete() \\
-Suporte a Cache/Proxy   & Parcial                                                                                     & sim                                                 & sim                                                                                                             & sim                                                                   \\
-Qualidade de Serviço    & 3 níveis: QOS 0 - no máximo uma vez; QOS 1 - Pelo menos uma vez; QOS 2 - Exatamente uma vez & 2 Níveis: QOS 0; QOS 1.                             & 2 Níveis: QOS 0; QOS 1.                                                                                         & Limitado via TCP                                                      \\
-Protocolo de Transporte & TCP                                                                                         & UDP, SCTP                                           & TCP, SCTP                                                                                                       &                                                                       \\
-Segurança               & TLS/SSL                                                                                     & DTLS, IPSec                                         & TLS/SSL, IPSec                                                                                                  & TCP                                                                   \\
-Porta Padrão            & 1883 TLS / 8883 SSL                                                                         & 5683 UDP, 5684 DTLS                                 & 5671 TLS                                                                                                        & 80 TLS / 443 SSL                                                      \\
-Codificação             & Binário                                                                                     & Binário                                             & Binário                                                                                                         & Texto                                                                
-\end{tabular}%
-}
-\caption{}
-\label{tab:my-table}
-\end{table}
 
 \chapter{Análise de Resultados}
 \chapter{Conclusão}
