@@ -1,0 +1,87 @@
+\begin{thebibliography}{\hspace{\parindent}}
+
+\bibitem[Andy; Rahardjo; Hanindhito(2017)ANDY; RAHARDJO;
+  HANINDHITO]{attack2017} ANDY, S.; RAHARDJO, B.; HANINDHITO, B\@. Attack
+  scenarios and security analysis of MQTT communication protocol in IoT system.
+  In: INTERNATIONAL CONFERENCE ON ELECTRICAL ENGINEERING, COMPUTER SCIENCE AND
+  INFORMATICS (EECSI), 2017., 2017. \textbf{Anais{\ldots}} [S.l.:~s.n.], 2017.
+  p.1--6.
+
+\bibitem[Ashton(2009)ASHTON]{ashton} ASHTON, K\@. That 'Internet of Things'
+  thing. \textbf{RFiD Journal}, [S.l.], 2009.
+
+\bibitem[Cloudflare(2018)CLOUDFLARE]{cloudflare_layers} CLOUDFLARE.
+  \textbf{What is the {OSI} Model?} Dispon{\'\i}vel em:
+  <https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi>.
+  Acesso em: 2023-4-4.
+
+\bibitem[Fischer \MakeLowercase{et~al.}(2019)FISCHER; LINKA; RADEMACHER; JONAS;
+  LOEBENBERGER]{fischer} FISCHER, T. \MakeLowercase{et~al.} Analyzing power
+  consumption of TLS ciphers on an ESP32. \textbf{crypto day matters 30},
+  [S.l.], 2019.
+
+\bibitem[Fovino \MakeLowercase{et~al.}(2009)FOVINO; CARCANO; MASERA;
+  TROMBETTA]{fovino2009design} FOVINO, I.~N.; CARCANO, A.; MASERA, M.;
+  TROMBETTA, A\@. Design and implementation of a secure modbus protocol. In:
+  CRITICAL INFRASTRUCTURE PROTECTION III: THIRD ANNUAL IFIP WG 11.10
+  INTERNATIONAL CONFERENCE ON CRITICAL INFRASTRUCTURE PROTECTION, HANOVER, NEW
+  HAMPSHIRE, USA, MARCH 23-25, 2009, REVISED SELECTED PAPERS 3, 2009.
+  \textbf{Anais{\ldots}} [S.l.:~s.n.], 2009. p.83--96.
+
+\bibitem[Gl{\'o}ria; Cercas; Souto(2017)GL{\'O}RIA; CERCAS;
+  SOUTO]{gloria2017design} GL{\'O}RIA, A.; CERCAS, F.; SOUTO, N\@. Design and
+  implementation of an IoT gateway to create smart environments.
+  \textbf{Procedia Computer Science}, [S.l.], v.109, p.568--575, 2017.
+
+\bibitem[Ibarra-esquer \MakeLowercase{et~al.}(2017)IBARRA-ESQUER;
+  GONZáLEZ-NAVARRO; FLORES-RIOS; BURTSEVA; ASTORGA-VARGAS]{Ibarra-Esquer}
+  IBARRA-ESQUER, J. \MakeLowercase{et~al.} Tracking the Evolution of the
+  Internet of Things Concept Across Different Application Domains.
+  \textbf{Sensors}, [S.l.], v.17, n.6, p.1379, Jun~2017.
+
+\bibitem[Imperva(2016)IMPERVA]{imperva} IMPERVA. \textbf{OSI Model Explained}:
+  The OSI 7 Layers. Dispon{\'\i}vel em:
+  <https://www.imperva.com/learn/application-security/osi-model/>. Acesso em:
+  2023-4-4.
+
+\bibitem[Kaspersky(2014)KASPERSKY]{stuxnet_kaspersky} KASPERSKY.
+  \textbf{Stuxnet}: As Origens. Dispon{\'\i}vel em:
+  <https://www.kaspersky.com.br/blog/stuxnet-as-origens/4391/>. Acesso em:
+  2023-4-4.
+
+\bibitem[Kurose; Ross(2022)KUROSE; ROSS]{kurose} KUROSE, J.~F.; ROSS, K.~W\@.
+  \textbf{Computer Networking - A Top-down Approach}. Harlow, Reino Unido:
+  Pearson, 2022.
+
+\bibitem[Laya; Bratu; Markendahl(2013)LAYA; BRATU; MARKENDAHL]{laya} LAYA, A.;
+  BRATU, V.-l.; MARKENDAHL, J\@. \textbf{Who is investing in machine-to-machine
+  communications?} [S.l.]: International Telecommunications Society (ITS),
+  2013. 24th European Regional ITS Conference, Florence 2013.
+
+\bibitem[O'hara(2007)O'HARA]{o2007toward} O'HARA, J\@. Toward a commodity
+  enterprise middleware: Can AMQP enable a new era in messaging middleware? A
+  look inside standards-based messaging with AMQP. \textbf{Queue}, [S.l.], v.5,
+  n.4, p.48--55, 2007.
+
+\bibitem[Schaffers \MakeLowercase{et~al.}(2011)SCHAFFERS; KOMNINOS; PALLOT;
+  TROUSSE; NILSSON; OLIVEIRA]{smart_cities} SCHAFFERS, H.
+  \MakeLowercase{et~al.} Smart Cities and the Future Internet: Towards
+  Cooperation Frameworks for Open Innovation. In: THE FUTURE INTERNET, 2011,
+  Berlin, Heidelberg. \textbf{Anais{\ldots}} Springer Berlin Heidelberg, 2011.
+  p.431--446.
+
+\bibitem[Schiller \MakeLowercase{et~al.}(2022)SCHILLER; AIDOO; FUHRER; STAHL;
+  ZIöRJEN; STILLER]{schiller} SCHILLER, E. \MakeLowercase{et~al.} Landscape of
+  IoT security. \textbf{Computer Science Review}, [S.l.], v.44, p.100467, 2022.
+
+\bibitem[Sharma; Shamkuwar; Singh(2019)SHARMA; SHAMKUWAR; SINGH]{Sharma2019}
+  SHARMA, N.; SHAMKUWAR, M.; SINGH, I\@. \textbf{The History, Present and
+  Future with IoT}. [S.l.]: Springer International Publishing, 2019. p.27--51.
+
+\bibitem[Zhang; Sun; Cheng(2012)ZHANG; SUN; CHENG]{xu} ZHANG, M.; SUN, F.;
+  CHENG, X\@. "Architecture of Internet of Things and Its Key Technology
+  Integration Based-On RFID". In: FIFTH INTERNATIONAL SYMPOSIUM ON
+  COMPUTATIONAL INTELLIGENCE AND DESIGN, 2012., 2012. \textbf{Anais{\ldots}}
+  [S.l.:~s.n.], 2012. v.1, p.294--297.
+
+\end{thebibliography}

@@ -161,7 +161,10 @@ Os estudos desenvolvidos por \citet{smart_cities} sugerem várias aplicações d
 
 A evolução sistemática do conceito de IoT e o acompanhamento em vários domínios desenvolvido por \citet{Ibarra-Esquer} nos mostra como idealmente, é essencial ter uma infraestrutura composta de dispositivos de sensoriamento, enlaces de comunicação e aplicações destinadas ao usuário final para ter um ambiente inteligente. No entanto, não é de forma alguma essencial dispor de toda a infraestrutura no começo \cite{laya}. Uma solução única não pode acomodar as aplicações de um campo heterogêneo como a IoT, não obstante a falta de serviços de segurança e ampla gama de dispositivos, bem como as preocupações com privacidade do usuário final. 
 
-Com a iminente ubiquidade de uma rede de máquinas construída com os conceitos de IoT, faz-se necessário um olhar com cuidado sobre a segurança empregada, devido a natureza sensível das informações que trafegam nessa rede. Assim, será feito uma extensiva revisão bibliográfica de todos os conceitos importantes para essa análise, seguido de um mapeamento dos protocolos mais utilizados e uma análise de segurança através de várias técnicas de invasão. Por fim, os resultados dessas informações serão discutidos na tentativa de encontrar um paradigma seguro para uma rede IoT.
+Com a iminente ubiquidade de uma rede de máquinas construída com os conceitos de IoT, faz-se necessário um olhar com cuidado sobre a segurança empregada, devido a natureza sensível
+das informações que trafegam nessa rede. Assim, será feito uma extensiva revisão bibliográfica de todos os conceitos importantes para essa análise, seguido de um mapeamento dos
+protocolos mais utilizados e uma análise de segurança através de várias técnicas de invasão. Por fim, os resultados dessas informações serão discutidos na tentativa de encontrar um
+paradigma seguro para uma rede IoT e SCADA. 
 
 \chapter{Revisão Bibliográfica}
 
@@ -265,7 +268,7 @@ Redes de comunicação existem em diferentes sabores, que podem ser divididos em
 
 \subsubsection{Conexão ponto-a-ponto}
 
-Nós ligados com uma conexão dedicada formam uma topologia ponto a ponto \cite{schiller}, onde nós agem como pontos finais. De maneira a funcionar  corretamente, nem um dos pontos nem o enlace pode falhar.
+Nós ligados com uma conexão dedicada formam uma topologia ponto a ponto \cite{schiller}, onde nós agem como pontos finais. De maneira a funcionar  corretamente, nem um dos pontos nem o enlace pode falhar
 
 \subsubsection{Ciranda}
 
@@ -280,6 +283,18 @@ Quando todos os nós estão conectados a um \textit{gateway} central, a topologi
 Uma topologia de malha (\textit{mesh}) é caracterizada por pelo menos três nós distintos, onde cada um desses pontos é vizinho de um conjunto de outros nós, conforme ilustrado na figura \ref{fig:mesh}. Essas conexões podem ser geradas de maneira dinâmica ou hierárquica.
 
 \subsubsection{Nós \textit{Gateway}}
+
+De acordo com \citet{gloria2017design}, um nó do tipo Gateway (\textit{Portal}) é construido por um hardware pronto para suportar diferentes tipos de nós sensores e protocolos de
+comunicação, cabeados ou sem-fio. Também é responsável por prover um conjunto de de informação unificado para a aplicação. O grande desafio de criar um gateway IoT é a falta de
+padrão industrial, dado que cada sensor pode comunicar com um protocolo diferente. A figura \ref{fig:arch} ilustra a posição do gateway numa arquitetura IoT.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.6]{figs/arch.png}
+    \medskip
+    \caption{Visualização de uma arquitetura exemplo envolvendo gateway, modificado de \cite{gloria2017design}}
+    \label{fig:arch}
+\end{figure}
 
 \section{Preocupações com Segurança} 
 
@@ -374,6 +389,18 @@ O Grafana é uma das arquiteturas mais populares para receber dados de dispositi
 
 o Protocolo Avançado de Fila de Mensagens \textit{(AMQP - Advanced Message Queue Protocol)} foi feito para prover mensagens de alta performance e uso geral, com disponibilidade de implementação de filas e roteamento complexo \cite{o2007toward}, resultando num protocolo capaz de fazer rotinas de entrega mais complexa como multicast.
 
+\subsubsection{Modbus}
+
+O protocolo Modbus existe na camada de aplicação e cria comunicação modo cliente/servidor entre dispositivos conectados em barramentos diferentes ou redes distintas. Comunicações
+Modbus são de dois tipos \cite{fovino2009design}.
+\begin{itemize}
+        \item Pergunta/resposta, quando a comunicação é entre um mestre e um trabalhador
+        \item Broadcast (\textit{transmissão}), quando a comunicação é entre o mestre para todos os trabalhadores
+\end{itemize}
+
+Uma transação Modbus existe em um único frame (\textit{quadro}) para o modo pergunta/resposta ou um único frame para o modo broadcast. O frame Modbus contem o endereço do receptor
+de destino, o comando que ele deve executar e os dados necessários pra executar o comando. A implementação Modbus TCP embarca o frame Modbus num frame TCP.
+
 \chapter{Metodologia}
 
 Devido a natureza polimórfica de sistemas de Internet das Coisas, uma análise de segurança requer como primeiro passo uma análise profunda de \textit{hardware}, \textit{software} e de rede. Para cobrir essas camadas, é necessário conduzir uma análise de vulnerabilidade em potencial no sistema como, por exemplo, \textit{software} desatualizado, comunicação insegura, ou senhas fracas que podem ser exploradas.
@@ -382,7 +409,9 @@ De maneira semelhante, os sistemas de autenticação (LDAP, TACACS+, e semelhant
 
 A parte mais vulnerável na maioria dos sistemas de IoT é a segurança da comunicação dos dispositivos de onde os dados são coletados, uma vez que nem sempre esses dispositivos possuem a capacidade computacional para implementar modos seguros de comunicação. Por exemplo, um sensor que transmite seus dados via wi-fi em texto aberto, ou com uma criptografia fraca. Por exemplo, a aplicação de uma criptografia TLS em uma plataforma ESP32 consome cerca de 17 vezes mais energia do que uma transmissão sem criptografia \cite{fischer}.
 
-A abordagem mais extensiva de um \textit{pentest} envolve não só todos os passos supracitados como o desenvolvimento de uma descrição completa do sistema, a fim de compreender a área de superfície da penetração a ser executada e onde aplicar cada técnica. As técnicas e ferramentas variam, abaixo listam-se algumas: 
+Uma solução para essa análise é a aplicação de um \textit{pentest} (teste de penetração), onde um ataque simulado é executado em um sistema computacional para avaliar sua
+segurança. Durante o pentest, todos os aspectos do sistema são postos a prova, uma vez que o agente aplicando esse teste dispõe das mesmas ferramentas, processos e técnicas de um
+adversário. A abordagem mais extensiva de um \textit{pentest} envolve não só todos os passos supracitados como o desenvolvimento de uma descrição completa do sistema, a fim de compreender a área de superfície da penetração a ser executada e onde aplicar cada técnica. As técnicas e ferramentas variam, abaixo listam-se algumas: 
 
 \begin{itemize}
     \item Ferramentas de mapeamento de rede e portas, como o nmap
@@ -400,17 +429,103 @@ A abordagem mais extensiva de um \textit{pentest} envolve não só todos os pass
     \label{fig:layers}
 \end{figure}
 
+Assim, serão criados dois ambientes: O ambiente SCADA, usando Modbus-TCP e o ambiente IoT, usando MQTT e CoAP. Nesses ambientes, essas técnicas de
+análise de segurança serão empregadas a fim de encontrar vulnerabilidades nessas implementações.
 
-\chapter{Comparação de Protocolos de Mensagem}
+\section{Descrição do Ensaio - SCADA}
 
-De acordo com \citet{choice}, os quatro protocolos mais aceitos para troca de mensagem em infraestruturas IoT são o MQTT, CoAP, AMQP e HTTP. O quadro
+A maioria dos protocolos SCADA em uso hoje em dia foram desenvolvidos décadas atrás, quando a infraestrutura tecnológica e as ameaças eram bem diferentes das atuais. Por exemplo, o
+protocolo Modbus foi originalmente proposto num artigo de 1979.
+
+Como as redes Modbus eram originalmente isoladas e livres de adversários externos, aspectos chave como integridade e autenticação não foram levadas em consideração na proposta
+original do protocolo.
+
+O transporte de mensagens Modbus usando TCP introduz novos níveis de complexidade no que tange ao gerenciamento da entrega confiável de pacotes de controle em um ambiente com
+limitações estritas de tempo-real. Não obstante, abre novas avenidas para adversários com alvo em sistemas industriais.
+A falta de mecanismos para proteger a confidencialidade e verificar a integridade de mensagens transmitidas entre um mestre e seus trabalhadores. Por exemplo, não é possivel
+identificar se a mensagem original foi adulterada por um adversário. De maneira semelhante, não existe autenticação entre mestre e trabalhadores, ou seja, um dispositivo
+comprometido pode agir como mestre e mandar comandos para os trabalhadores. 
+
+Alguns ataques chave a ser conduzido contra Modbus TCP são:
+\begin{itemize}
+        \item Execução de Comandos Não-autorizados, devido a falta de autenticação entre mestre e trabalhador significa que um adversário pode mandar mensagens forjadas da Modbus para um grupo de trabalhadores. Para executar este ataque, o adversário deve ser capaz de acessar a rede onde reside os servidores SCADA ou o barramento onde os trabalhadores estão conectados.
+        \item Ataque de Negação de Serviço (\textit{Denial of Service}, ou DoS), onde, por exemplo, é possível mandar mensagens confusas aos terminais de um dispositivo que finge ser o mestre. Essa sobrecarga de mensagens faz com que os terminais gastem seus recursos de processamento
+        \item Ataque \textit{Man-in-the-middle}), devido a falta de testes de integridade possibilita um adversário a se posicionar entre o controlador e o mestre de maneira a alterar mensagens legítimas para dispositivos trabalhadores
+\end{itemize}
+
+\subsection{Criação de Ambiente}
+
+Para a criação desse laboratório de pentest, será usado uma máquina Linux Ubuntu 20.04 com kernel 5.19 usando o programa VirtualBox da Oracle. O VirtualBox por sua vez usará a
+pilha KVM para efetuar a virtualização de 5 máquinas:
+
+\begin{itemize}
+        \item Um firewall de código aberto pfsense;
+        \item Uma máquina debian agindo como estação de trabalho usando OpenPLC;
+        \item Uma máquina para execução dos comandos da estação de trabalho, rodando o OpenPLC Runtime;
+        \item Uma máquina para a aquisição de dados SCADA, usando uma imagem do SCADABR;
+        \item Uma máquina para a interpretação dos comandos, usando Factory IO;
+        \item uma máquina de um adversário, invadindo a rede.
+\end{itemize}
+
+O diagrama de rede desse ensaio está ilustrado na figura \ref{fig:scada-net}.
+
+\begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.5]{figs/scada-net.png}
+        \caption{Ilustração da rede para o laboratório SCADA}
+        \label{fig:scada-net}
+\end{figure}
+
+A partir dessa construção, será desenvolvido um programa simbólico em Ladder para ser executado no ambiente FactoryIO e gerenciado pelas máquinas PLC e SCADABR. Assim, então, será
+conduzido uma análise de exploração dessa configuração como prova de conceito.
+
+\section{Descrição do Ensaio - IoT}
+Primeiramente, é necessário assumir que nada é conhecido sobre o sistema sujeito ao ataque. Ou seja, nenhuma informação sobre a infraestrutura, mecanismos de defesa e canais de
+comunicação. 
+O ataque então é iniciado através de um mapeamento básico usando uma ferramenta como o \textit{nmap} para coleção de informação. A porta padrão do MQTT é a 1883, no entanto, o
+\textit{nmap} nos dá uma relação completa das portas abertas na rede.
+
+Para um cenário inicial, é possível assinar a todos os tópicos negociados pelo \textit{broker}, através da assinatura ao tópico $\#$, que pode nos dar dados confidenciais para ser
+analisado em um outro momento. Um outro cenário pode ser iniciado ao publicar dados num broker que não tem um mecanismo de autenticação, efetivamente assumindo o controle do
+dispositivo na outra ponta da rede. Esse último pode ser utilizado para publicar quantidades imensas de dados de maneira a causar uma sobrecarga no broker e no dispositivo
+controlado (ataque de negação de serviço - DoS).
+
+De acordo com \citet{attack2017}, ambos os cenários supracitados são genéricos o suficiente para serem aplicados em uma rede local ou pública.
+
+\subsection{Infraestrutura}
 
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
 
 \chapter{Análise de Resultados}
+
+
+\section{Análise do ensaio IoT}
+\subsection{Privacidade}
+A questão da privacidade é primordial no protocolo MQTT, uma vez que, por padrão, o protocolo não provê nenhuma criptografia sobre os dados trafegados. Apesar da utilização de
+mecanismos de autenticação, qualquer adversário ainda consegue farejar e analizar os dados com o uso de uma ferramenta como o \textit{Wireshark}, como demonstrado por
+\citet{attack2017}.
+\subsection{Autenticação}
+
 \chapter{Conclusão}
+% lalalalala
+Apesar dessas considerações, existem varias soluções para aumento de segurança. Uma delas é a reimplementação de protocolos como MQTT e Modbus TCP levando em consideração as
+ferramentas necessárias desses protocolos para garantir a segurança num ambiente de rede moderno, como proposto por \citet{fovino2009design}, onde essa reimplementação é construida
+com os seguintes pressupostos:
+
+\begin{itemize}
+        \item Nenhuma entitade deve poder acessar o conteúdo de uma mensagem sem autorização;
+        \item Integridade: nenhuma entidade deve poder modificar o conteúdo de uma mensagem sem autorização. Isso é garantido usando uma chave de criptografia (SHA2) calculada a
+                partir do conteúdo da mensagem. Essa chave transmitida junto com o pacote original, para ser comparada pelo cálculo da chave efetuado pelo receptor.
+        \item Autenticação: nenhuma entidade deve poder se passar por outra entidade. Apesar da garantia de integridade, o cálculo dessa chave não basta para garantir que a
+                mensagem veio de um remetente autêntico. Assim, a autenticação é garantida através de uma assinatura RSA por parte do remetente que pode ser examinada pelo
+                receptor.
+        \item Nenhuma entidade deve poder negar uma ação em execução
+        \item Nenhuma entidade deve poder reutilizar uma mensagem capturada como meio de acesso não autorizado. Isso é implementado usando um carimbo datado para discriminar entre
+                um pacote novo e um usado.
+\end{itemize}
+
 
 \bibliographystyle{abnt}
 \bibliography{bibliografia} 

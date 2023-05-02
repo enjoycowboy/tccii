@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: exemplo-tcc.aux
+The style file: abnt.bst
+Database file #1: bibliografia.bib
+Warning--entry type for "cloudflare_layers" isn't style-file defined
+--line 18 of file bibliografia.bib
+Warning--entry type for "imperva" isn't style-file defined
+--line 26 of file bibliografia.bib
+Warning--entry type for "stuxnet_kaspersky" isn't style-file defined
+--line 81 of file bibliografia.bib
+You've used 16 entries,
+            2376 wiz_defined-function locations,
+            684 strings with 7876 characters,
+and the built_in function-call counts, 14026 in all, are:
+= -- 1260
+> -- 130
+< -- 306
++ -- 813
+- -- 64
+* -- 952
+:= -- 1241
+add.period$ -- 64
+call.type$ -- 16
+change.case$ -- 203
+chr.to.int$ -- 60
+cite$ -- 16
+duplicate$ -- 1695
+empty$ -- 814
+format.name$ -- 256
+if$ -- 2737
+int.to.chr$ -- 0
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 35
+num.names$ -- 80
+pop$ -- 389
+preamble$ -- 1
+purify$ -- 16
+quote$ -- 0
+skip$ -- 769
+stack$ -- 0
+substring$ -- 665
+swap$ -- 1220
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 98
+warning$ -- 0
+while$ -- 108
+width$ -- 0
+write$ -- 18
+(There were 3 warnings)
