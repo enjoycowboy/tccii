@@ -507,6 +507,10 @@ A questão da privacidade é primordial no protocolo MQTT, uma vez que, por padr
 mecanismos de autenticação, qualquer adversário ainda consegue farejar e analizar os dados com o uso de uma ferramenta como o \textit{Wireshark}, como demonstrado por
 \citet{attack2017}.
 \subsection{Autenticação}
+Se o broker usa autenticação do cliente através de uma combinação usuário/senha, idealmente o adversário não pode agir como um publicador ou assinante sem o conhecimento dessas
+informações. Em um cenário onde um adversário está na mesma rede que o nó publicador, o adversário consegue farejar o tráfego na rede enquanto espera por um pacote de solicitação
+de conexão do publicador entrar em trânsito. Assim, é possível revelar o usuário e senha usado por esse usuário legítimo para assumir o controle dos dispositivos
+assinantes.<F9><F9>
 
 \chapter{Conclusão}
 % lalalalala
